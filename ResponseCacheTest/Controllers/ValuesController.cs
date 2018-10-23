@@ -17,11 +17,13 @@ namespace ResponseCacheTest.Controllers
             return new string[] { "value1", "value2" };
         }
 
+
         // GET api/values/5
         [HttpGet("{id}")]
+        [ResponseCache(Duration = 60)]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            return "Stamp: " + DateTime.Now.ToString();
         }
 
         // POST api/values
